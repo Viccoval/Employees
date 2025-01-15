@@ -1,0 +1,13 @@
+CREATE TABLE IF NOT EXISTS Employees (
+    id SERIAL PRIMARY KEY,
+    Name VARCHAR(100) NOT NULL,
+    department VARCHAR(60) NOT NULL,
+    boss_id INTEGER,
+    FOREIGN KEY (boss_id) REFERENCES Employees(id)
+);
+
+INSERT INTO Employees (Name, department) VALUES ('Данил Иванов', 'Отдел IT');
+INSERT INTO Employees (Name, department) VALUES ('Олег Петров', 'Отдел маркетинга');
+INSERT INTO Employees (Name, department) VALUES ('Алексей Куров', 'Отдел продаж');
+
+UPDATE Employees SET boss_id = 2 WHERE id = 1
